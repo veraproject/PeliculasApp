@@ -1,8 +1,9 @@
 import React from 'react';
-import PeliculaHomeView from './views/PeliculaHomeView'
+
+import Routers from './config/Routers'
 
 const App = () => (
-    <PeliculaHomeView />
+  <Routers />
 )
 
 export default App

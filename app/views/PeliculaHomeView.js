@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {  View, Text, StyleSheet } from 'react-native';
+import {  View, Text, StyleSheet, Button } from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
@@ -10,6 +10,16 @@ const styles = StyleSheet.create({
 })
 
 export default class PeliculaHomeView extends Component {
+
+  static navigationOptions = ({ navigation }) => {
+    const { params } = navigation.state
+
+    return {
+      title: 'Listado Peliculas',
+      headerRight: <Button title="Nuevo" onPress={() => null} />
+    }
+  }
+
   render() {
     return (
       <View style={styles.container}>
