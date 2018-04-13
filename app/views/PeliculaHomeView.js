@@ -1,25 +1,23 @@
 import React, { Component } from 'react';
-import {  View, Text, StyleSheet, Button } from 'react-native';
+import { View, Text, StyleSheet, Button } from 'react-native';
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
 })
 
 export default class PeliculaHomeView extends Component {
 
-  static navigationOptions = ({ navigation }) => {
-    const { params } = navigation.state
+  // Personalizacion del Navigation
+  static navigationOptions = ({ navigation }) => ({
+    title: 'Listado Peliculas',
+    headerRight: <Button title="Nuevo" onPress={() => navigation.navigate('PeliculaNueva')} />
+  })
 
-    return {
-      title: 'Listado Peliculas',
-      headerRight: <Button title="Nuevo" onPress={() => null} />
-    }
-  }
-
+  // Metodo que dibuja la vista a mostrar al usuario
   render() {
     return (
       <View style={styles.container}>
