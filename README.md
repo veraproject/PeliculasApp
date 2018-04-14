@@ -16,4 +16,5 @@ Comparte la misma base de código para iOS y Android.
 ## Dependencias
 
   - Componentes
-    - [react-navigation](https://github.com/react-navigation/react-navigation)
+    - [react-navigation](https://github.com/react-community/react-navigation)
+    - [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons)
