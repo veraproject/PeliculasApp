@@ -5,7 +5,8 @@ import {
   TouchableOpacity, TouchableWithoutFeedback, Alert
 } from 'react-native';
 
-import { dataTemporalPeliculas } from '../api/RestApi'
+import RestApi, { dataTemporalPeliculas } from '../api/RestApi'
+import { LoaderComponent } from '../components'
 
 // Se importa componentes externos
 import Ionicon from 'react-native-vector-icons/Ionicons'
@@ -30,22 +31,26 @@ export default class PeliculaHomeView extends Component {
   constructor(props) {
     super(props)
 
+    restApi = new RestApi()
+
     this.state = {
+      loading: false,
       data: [],
+      error: null,
       activeRow: null
     }
   }
 
   componentDidMount() {
-    this.setState({
-      data: dataTemporalPeliculas
-    })
+    this.getAllPeliculas();
   }
 
   // Metodo que dibuja la vista a mostrar al usuario
   render() {
     return (
       <View style={styles.container}>
+        <LoaderComponent loading={this.state.loading} />
+
         <FlatList
           data={this.state.data}
           renderItem={({ item, index }) => this.renderItemPelicula(item, index)}
@@ -61,6 +66,7 @@ export default class PeliculaHomeView extends Component {
     //console.log(item + ' - ' +index)
 
     const { navigate } = this.props.navigation
+    const localImagePath = require('../images/img-sinfoto.png')
 
     const swipeSettings = {
       autoClose: true,
@@ -84,7 +90,7 @@ export default class PeliculaHomeView extends Component {
           <TouchableWithoutFeedback onPress={() => navigate('PeliculaDetalle', { item: item })}>
             <View style={styles.itemContainer}>
               <View style={styles.itemImageTextContainer}>
-                <Image style={styles.itemImage} source={item.logo} />
+                <Image style={styles.itemImage} source={localImagePath} />
                 <View style={styles.itemTextContainer}>
                   <Text style={styles.itemText} >{item.titulo}</Text>
                   <Text style={styles.itemText} >{item.descripcion}</Text>
@@ -127,16 +133,39 @@ export default class PeliculaHomeView extends Component {
     Alert.alert('Confirmación', '¿Esta seguro de eliminar esta pelicula?',
       [
         { text: 'No', onPress: null, style: 'cancel' },
-        { text: 'Si', onPress: this.eliminarPelicula.bind(this, item, index) }
+        { text: 'Si', onPress: this.deletePelicula.bind(this, item, index) }
       ],
       { cancelable: true }
     )
   }
 
-  eliminarPelicula(item, index) {
+  // Metodo que invocara al servicio de eliminar pelicula
+  deletePelicula(item, index) {
     console.log(item.id_pelicula)
   }
 
+  // Metodo que invoca al servicio de obtener listado de peliculas
+  getAllPeliculas() {
+    this.setState({ loading: true });
+
+    restApi.getServiceAllPeliculas().then((dataReponse) => {
+      console.log('Listado de peliculas:', dataReponse);
+
+      if (dataReponse) {
+        this.setState({
+          data: dataReponse,
+          error: dataReponse.error || null,
+          loading: false
+        });
+      } else {
+        this.setState({
+          data: [],
+          error,
+          loading: false
+        });
+      }
+    })
+  }
 }
 
 // Constante que almacena los estilos usado en el componente

@@ -1,4 +1,34 @@
 
+const urlListadoPelicula = `https://1nql88kfw5.execute-api.us-east-2.amazonaws.com/dev/listarpeliculas`
+const urlEliminarPelicula = `https://1nql88kfw5.execute-api.us-east-2.amazonaws.com/dev/eliminarpelicula`
+const urlAgregarPelicula = `https://1nql88kfw5.execute-api.us-east-2.amazonaws.com/dev/agregarpeliculav2`
+const urlObtenerPelicula = `https://1nql88kfw5.execute-api.us-east-2.amazonaws.com/dev/detallepelicula`
+
+const HeadersRestApi = {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+}
+
+const TimeOutRestApi = 3000
+
+export default class RestApi {
+
+    getServiceAllPeliculas() {
+        console.log('==> Ejecucion servicio listar peliculas')
+
+        return fetch(urlListadoPelicula)
+            .then((response) => response.json())
+            .then((responseJson) => {
+                return responseJson
+            })
+            .catch((error) => {
+                console.error(error);
+            })
+    }
+
+}
+
+
 export const dataTemporalPeliculas = [
     {
         estreno: true,

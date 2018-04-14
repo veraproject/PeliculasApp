@@ -29,6 +29,7 @@ export default class PeliculaNuevaView extends Component {
 
   // Metodo que dibuja la vista a mostrar al usuario
   render() {
+    // Obtencion de parametros a usarse en el componente
     const { goBack } = this.props.navigation
     
     return (

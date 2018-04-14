@@ -18,8 +18,10 @@ export default class PeliculaDetalleView extends Component {
 
     // Metodo que dibuja la vista a mostrar al usuario
     render() {
+        // Obtencion de parametros a usarse en el componente
         const { params } = this.props.navigation.state
         const { titulo, descripcion, logo } = params.item
+        
         return (
             <View style={styles.container}>
                 <View style={styles.inputContainer}>
