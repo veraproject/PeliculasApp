@@ -4,13 +4,17 @@ import {
   StyleSheet, TouchableOpacity, Switch
 } from 'react-native';
 
+import { HeaderBackButton } from 'react-navigation'
+
 export default class PeliculaNuevaView extends Component {
 
   // Personalizacion del Navigation
   static navigationOptions = ({ navigation }) => ({
-    title: 'Nueva Pelicula'
+    title: 'Nueva Pelicula',
+    headerLeft: <HeaderBackButton onPress={() => navigation.goBack()} />
   })
 
+  // Constructor del componente
   constructor(props) {
     super(props);
 
@@ -85,6 +89,7 @@ export default class PeliculaNuevaView extends Component {
   }
 }
 
+// Constante que almacena los estilos usado en el componente
 const styles = StyleSheet.create({
   container: {
     flex: 1,

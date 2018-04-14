@@ -1,4 +1,6 @@
-import { StackNavigator } from 'react-navigation';
+import React from 'react';
+
+import { StackNavigator, HeaderBackButton } from 'react-navigation';
 
 import PeliculaHomeView from '../views/PeliculaHomeView'
 import PeliculaNuevaView from '../views/PeliculaNuevaView'

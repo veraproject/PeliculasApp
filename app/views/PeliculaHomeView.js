@@ -24,6 +24,7 @@ export default class PeliculaHomeView extends Component {
     )
   })
 
+  // Constructor del componente
   constructor(props) {
     super(props)
 
@@ -53,9 +54,9 @@ export default class PeliculaHomeView extends Component {
     );
   }
 
+  // Metodo que dibuja una fila del listado
   renderItemPelicula(item, index) {
     //console.log(item + ' - ' +index)
-
     return (
 
       <View style={styles.itemContainer}>
@@ -72,6 +73,7 @@ export default class PeliculaHomeView extends Component {
     )
   }
 
+  // Metodo que dibuja el separador entre fila del listado
   renderItemSeparator() {
     return (
       <View style={styles.itemSeparatorContainer} />
@@ -79,6 +81,7 @@ export default class PeliculaHomeView extends Component {
   }
 }
 
+// Constante que almacena los estilos usado en el componente
 const styles = StyleSheet.create({
   container: {
     flex: 1,
