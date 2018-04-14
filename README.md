@@ -18,3 +18,4 @@ Comparte la misma base de código para iOS y Android.
   - Componentes
     - [react-navigation](https://github.com/react-community/react-navigation)
     - [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons)
+    - [react-native-swipeout](https://github.com/dancormier/react-native-swipeout)

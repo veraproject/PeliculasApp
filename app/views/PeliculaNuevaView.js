@@ -37,8 +37,8 @@ export default class PeliculaNuevaView extends Component {
           <Text style={styles.inputText}>Titulo:</Text>
           <TextInput
             style={styles.input}
-            placeholder='Titulo'
-            placeholderTextColor="#BDBDBD"
+            placeholder='Ingrese titulo'
+            placeholderTextColor="#8E8E8E"
             onChangeText={text => this.setState({ inputTituloValue: text })}
             value={this.state.inputTituloValue}
           />
@@ -47,8 +47,8 @@ export default class PeliculaNuevaView extends Component {
           <Text style={styles.inputText}>Descripción:</Text>
           <TextInput
             style={styles.input}
-            placeholder='Decripción'
-            placeholderTextColor="#BDBDBD"
+            placeholder='Ingrese decripción'
+            placeholderTextColor="#8E8E8E"
             onChangeText={text => this.setState({ inputDescripcionValue: text })}
             value={this.state.inputDescripcionValue}
           />
@@ -57,8 +57,8 @@ export default class PeliculaNuevaView extends Component {
           <Text style={styles.inputText}>Genero:</Text>
           <TextInput
             style={styles.input}
-            placeholder='Genero'
-            placeholderTextColor="#BDBDBD"
+            placeholder='Ingrese genero'
+            placeholderTextColor="#8E8E8E"
             onChangeText={text => this.setState({ inputGeneroValue: text })}
             value={this.state.inputGeneroValue}
           />
@@ -74,8 +74,8 @@ export default class PeliculaNuevaView extends Component {
           <Text style={styles.inputText}>Logo:</Text>
           <TextInput
             style={styles.input}
-            placeholder='Logo'
-            placeholderTextColor="#BDBDBD"
+            placeholder='Ingrese logo'
+            placeholderTextColor="#8E8E8E"
             onChangeText={text => this.setState({ inputLogoValue: text })}
             value={this.state.inputLogoValue}
           />
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
   input: {
     height: 35,
     padding: 10,
-    borderColor: '#888787',
+    borderColor: '#8E8E8E',
     borderWidth: 1,
     borderRadius: 5
   },
